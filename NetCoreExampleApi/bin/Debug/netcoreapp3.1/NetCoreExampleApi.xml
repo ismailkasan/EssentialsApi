@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NetCoreExampleApi</name>
+    </assembly>
+    <members>
+        <member name="T:NetCoreExampleApi.Controllers.ProductController">
+            <summary>
+            Defines the <see cref="T:NetCoreExampleApi.Controllers.ProductController" />.
+            </summary>
+        </member>
+        <member name="F:NetCoreExampleApi.Controllers.ProductController._productService">
+            <summary>
+            Defines the _productService.
+            </summary>
+        </member>
+        <member name="M:NetCoreExampleApi.Controllers.ProductController.#ctor(AplicationExample.IProductService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NetCoreExampleApi.Controllers.ProductController"/> class.
+            </summary>
+            <param name="productService">The productService<see cref="T:AplicationExample.IProductService"/>.</param>
+        </member>
+        <member name="M:NetCoreExampleApi.Controllers.ProductController.GetAll">
+            <summary>
+            The GetAll.
+            </summary>
+            <returns>The <see cref="!:ActionResult&lt;IList&lt;ProductOutputDto&gt;&gt;"/>.</returns>
+        </member>
+        <member name="M:NetCoreExampleApi.Controllers.ProductController.GetProductFromSp(System.String)">
+            <summary>
+            The GetProductFromSp.
+            </summary>
+            <param name="param">The param<see cref="T:System.String"/>.</param>
+            <returns>The <see cref="!:ActionResult&lt;IList&lt;ProductOutputDto&gt;&gt;"/>.</returns>
+        </member>
+        <member name="M:NetCoreExampleApi.Controllers.ProductController.Post(DomainExample.ProductInputDto)">
+            <summary>
+            The Post.
+            </summary>
+            <param name="productInputDto">The productInputDto<see cref="T:DomainExample.ProductInputDto"/>.</param>
+            <returns>The <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/>.</returns>
+        </member>
+        <member name="T:NetCoreExampleApi.Controllers.TokenController">
+            <summary>
+            Defines the <see cref="T:NetCoreExampleApi.Controllers.TokenController" />.
+            </summary>
+        </member>
+        <member name="F:NetCoreExampleApi.Controllers.TokenController._configuration">
+            <summary>
+            Defines the _configuration.
+            </summary>
+        </member>
+        <member name="F:NetCoreExampleApi.Controllers.TokenController._userService">
+            <summary>
+            Defines the _userService.
+            </summary>
+        </member>
+        <member name="M:NetCoreExampleApi.Controllers.TokenController.#ctor(ApplicationExample.IUserService,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NetCoreExampleApi.Controllers.TokenController"/> class.
+            </summary>
+            <param name="userService">The userService<see cref="T:ApplicationExample.IUserService"/>.</param>
+            <param name="configuration">The configuration<see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.</param>
+        </member>
+        <member name="M:NetCoreExampleApi.Controllers.TokenController.Post(DomainExample.UserInputDto)">
+            <summary>
+            The Post.
+            </summary>
+            <param name="request">The request<see cref="T:DomainExample.UserInputDto"/>.</param>
+            <returns>The <see cref="T:Microsoft.AspNetCore.Mvc.IActionResult"/>.</returns>
+        </member>
+        <member name="T:NetCoreExampleApi.Startup">
+            <summary>
+            Defines the <see cref="T:NetCoreExampleApi.Startup" />.
+            </summary>
+        </member>
+        <member name="M:NetCoreExampleApi.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NetCoreExampleApi.Startup"/> class.
+            </summary>
+            <param name="configuration">The configuration<see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.</param>
+        </member>
+        <member name="P:NetCoreExampleApi.Startup.Configuration">
+            <summary>
+            Gets the Configuration.
+            </summary>
+        </member>
+        <member name="M:NetCoreExampleApi.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            The ConfigureServices.This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">The services<see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</param>
+        </member>
+        <member name="M:NetCoreExampleApi.Startup.AddAutoMapperConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Auto Mapper Konfigrasyonunu .Net Core'ekler.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:NetCoreExampleApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            The Configure.This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">The app<see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.</param>
+            <param name="env">The env<see cref="T:Microsoft.AspNetCore.Hosting.IWebHostEnvironment"/>.</param>
+        </member>
+    </members>
+</doc>
