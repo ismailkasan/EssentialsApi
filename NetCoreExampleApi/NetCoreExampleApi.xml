@@ -95,7 +95,7 @@
             <summary>
             Auto Mapper Konfigrasyonunu .Net Core'ekler.
             </summary>
-            <param name="services"></param>
+            <param name="services">.</param>
         </member>
         <member name="M:NetCoreExampleApi.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
             <summary>

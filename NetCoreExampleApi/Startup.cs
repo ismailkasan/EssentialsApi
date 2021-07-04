@@ -8,6 +8,8 @@ using AutoMapper;
 using CommonExample;
 using DataExample;
 using DomainExample;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -17,10 +19,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
 using System.Text;
 
 namespace NetCoreExampleApi
@@ -70,7 +69,11 @@ namespace NetCoreExampleApi
             services.AddDbContext<ExampleDbContext>(options =>
             options.UseSqlServer("Server=.;Initial Catalog=productdb;Integrated security=true;Connection Timeout=30;"));
 
-            services.AddControllers();
+            services.AddControllers().AddFluentValidation(fv =>
+            {
+                fv.RegisterValidatorsFromAssemblyContaining<Startup>();
+            });
+            services.AddSingleton<IValidator<Product>, ProductValidator>();
 
             // Redis
             services.AddDistributedRedisCache(option =>
@@ -137,7 +140,7 @@ namespace NetCoreExampleApi
         /// <summary>
         /// Auto Mapper Konfigrasyonunu .Net Core'ekler.
         /// </summary>
-        /// <param name="services"></param>
+        /// <param name="services">.</param>
         private void AddAutoMapperConfiguration(IServiceCollection services)
         {
             //Auto Mapper

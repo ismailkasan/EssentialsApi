@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "qBpxbndZQgwgWnsyegSbXTKWxAHD2mJSZX5NBMncHQ+22bu7idfSf6iwI8WoMVF1WUaUUs1rONmfsULNNmTGlw==",
+  "dgSpecHash": "0flxCz/js9B/0ENDbNbhMOQpf/e1VEHh15ejLTbCTomTqRDvQkUlyfzb6ws5V0b7MtFnBrqO4RyPad3q55y6bg==",
   "success": true,
   "projectFilePath": "D:\\Demolar\\.NetCore\\NetCoreExampleSolution\\NetCoreExampleApi\\NetCoreExampleApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sbi\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\sbi\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\sbi\\.nuget\\packages\\fluentvalidation\\10.2.3\\fluentvalidation.10.2.3.nupkg.sha512",
+    "C:\\Users\\sbi\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.2.3\\fluentvalidation.aspnetcore.10.2.3.nupkg.sha512",
+    "C:\\Users\\sbi\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.2.3\\fluentvalidation.dependencyinjectionextensions.10.2.3.nupkg.sha512",
     "C:\\Users\\sbi\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.16\\microsoft.aspnetcore.authentication.jwtbearer.3.1.16.nupkg.sha512",
     "C:\\Users\\sbi\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\sbi\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

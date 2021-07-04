@@ -74,8 +74,7 @@ namespace NetCoreExampleApi.Controllers
                     issuer: _configuration["Issuer"], //appsettings.json içerisinde bulunan issuer değeri
                     audience: _configuration["Audience"],//appsettings.json içerisinde bulunan audince değeri
                     claims: claims, // yetkilendirme için claim ler
-                    expires: DateTime.UtcNow.AddDays(30), // 30 gün geçerli olacak
-                    notBefore: DateTime.UtcNow,
+                    expires: DateTime.UtcNow.AddDays(30), // 30 gün geçerli olacak                
                     signingCredentials: new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SigningKey"])),//appsettings.json içerisinde bulunan signingkey değeri
                             SecurityAlgorithms.HmacSha256)
                 );

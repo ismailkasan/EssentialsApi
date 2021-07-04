@@ -32,6 +32,6 @@ namespace AplicationExample
         /// The AddProduct.
         /// </summary>
         /// <param name="productInputDto">The productInputDto<see cref="ProductInputDto"/>.</param>
-        void AddProduct(ProductInputDto productInputDto);
+        IList<string> AddProduct(ProductInputDto productInputDto);
     }
 }

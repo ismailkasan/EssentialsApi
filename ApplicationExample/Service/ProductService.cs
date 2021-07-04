@@ -7,51 +7,52 @@
 using AutoMapper;
 using DataExample;
 using DomainExample;
+using FluentValidation;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace AplicationExample
 {
-    /// <summary>
-    /// Defines the <see cref="ProductService" />.
-    /// </summary>
     public class ProductService : IProductService
     {
-        /// <summary>
-        /// Defines the _productRepository.
-        /// </summary>
-        private readonly IProductRepository _productRepository;
-
         private readonly IMapper _mapper;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProductService"/> class.
-        /// </summary>
-        /// <param name="productRepository">The productRepository<see cref="IProductRepository"/>.</param>
-        public ProductService(IProductRepository productRepository, IMapper mapper)
+        private readonly IProductRepository _productRepository;
+
+        private readonly IValidator<Product> _productValidator;
+
+        public ProductService(IProductRepository productRepository, IMapper mapper, IValidator<Product> productValidator)
         {
             _productRepository = productRepository;
             _mapper = mapper;
+            _productValidator = productValidator;
         }
 
-        /// <summary>
-        /// The AddProduct.
-        /// </summary>
-        /// <param name="productInputDto">The productInputDto<see cref="ProductInputDto"/>.</param>
-        public void AddProduct(ProductInputDto productInputDto)
+        public IList<string> AddProduct(ProductInputDto productInputDto)
         {
             Product product = _mapper.Map<Product>(productInputDto);
-            _productRepository.Save(product);
+            var validateResult = _productValidator.Validate(product);
+            List<string> messages = new List<string>();
+            if (validateResult.IsValid)
+            {
+                _productRepository.Save(product);
+                messages.Add("Başarılı");
+                return messages;
+            }
+            else
+            {
+                foreach (var item in validateResult.Errors)
+                {
+                    messages.Add(item.ErrorMessage);
+                }
+                return messages;
+            }
         }
 
-        /// <summary>
-        /// The GetAllProducts.
-        /// </summary>
-        /// <returns>The <see cref="IList{ProductOutputDto}"/>.</returns>
         public IList<ProductOutputDto> GetAllProducts()
         {
             var sources = _productRepository.All().ToList();
-           
+
             IList<ProductOutputDto> result = _mapper.Map<IList<Product>, IList<ProductOutputDto>>(sources);
             return result;
         }

@@ -9,6 +9,7 @@ namespace DomainExample
     /// <summary>
     /// Defines the <see cref="Product" />.
     /// </summary>
+
     public class Product : BaseEntitiy
     {
         /// <summary>

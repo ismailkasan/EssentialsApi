@@ -65,10 +65,11 @@ namespace NetCoreExampleApi.Controllers
         /// <param name="productInputDto">The productInputDto<see cref="ProductInputDto"/>.</param>
         /// <returns>The <see cref="ActionResult"/>.</returns>
         [HttpPost]
-        public ActionResult Post([FromBody] ProductInputDto productInputDto)
+        [Route("AddProduct")]
+        public IList<string> Post([FromBody] ProductInputDto productInputDto)
         {
-            _productService.AddProduct(productInputDto);
-            return Ok();
+           return _productService.AddProduct(productInputDto);
+           
         }
     }
 }

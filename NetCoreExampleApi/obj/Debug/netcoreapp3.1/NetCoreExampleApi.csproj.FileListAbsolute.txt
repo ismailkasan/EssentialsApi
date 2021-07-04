@@ -118,3 +118,6 @@ D:\Demolar\.NetCore\NetCoreExampleSolution\NetCoreExampleApi\bin\Debug\netcoreap
 D:\Demolar\.NetCore\NetCoreExampleSolution\NetCoreExampleApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\Demolar\.NetCore\NetCoreExampleSolution\NetCoreExampleApi\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 D:\Demolar\.NetCore\NetCoreExampleSolution\NetCoreExampleApi\bin\Debug\netcoreapp3.1\NetCoreExampleApi.xml
+D:\Demolar\.NetCore\NetCoreExampleSolution\NetCoreExampleApi\bin\Debug\netcoreapp3.1\FluentValidation.dll
+D:\Demolar\.NetCore\NetCoreExampleSolution\NetCoreExampleApi\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
+D:\Demolar\.NetCore\NetCoreExampleSolution\NetCoreExampleApi\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
