@@ -5,3 +5,4 @@
 - Auto Mapper.
 - Scrutor Assembly Scan and One-Time Injection of All Services.
 - Entity Framework Core 3.1 Code First.
+- Fluent Validation for entities
