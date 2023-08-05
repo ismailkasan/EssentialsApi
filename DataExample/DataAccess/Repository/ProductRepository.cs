@@ -26,6 +26,7 @@ namespace DataExample
             _dbContext = dbContext;
         }
 
+
         public IList<ProductOutputDto> GetFromStoredProcedure(string param)
         {
             return _dbContext.Product

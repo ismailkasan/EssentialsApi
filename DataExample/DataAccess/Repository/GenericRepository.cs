@@ -45,6 +45,7 @@ namespace DataExample
         public void Save(T entity)
         {
             _dbSet.Add(entity);
+            _dbContext.SaveChanges();
         }
 
         /// <summary>

@@ -1,9 +1,0 @@
-D:\Demolar\.NetCore\NetCoreExampleSolution\CommonExample\bin\Debug\netcoreapp3.1\CommonExample.deps.json
-D:\Demolar\.NetCore\NetCoreExampleSolution\CommonExample\bin\Debug\netcoreapp3.1\CommonExample.dll
-D:\Demolar\.NetCore\NetCoreExampleSolution\CommonExample\bin\Debug\netcoreapp3.1\CommonExample.pdb
-D:\Demolar\.NetCore\NetCoreExampleSolution\CommonExample\obj\Debug\netcoreapp3.1\CommonExample.csproj.AssemblyReference.cache
-D:\Demolar\.NetCore\NetCoreExampleSolution\CommonExample\obj\Debug\netcoreapp3.1\CommonExample.AssemblyInfoInputs.cache
-D:\Demolar\.NetCore\NetCoreExampleSolution\CommonExample\obj\Debug\netcoreapp3.1\CommonExample.AssemblyInfo.cs
-D:\Demolar\.NetCore\NetCoreExampleSolution\CommonExample\obj\Debug\netcoreapp3.1\CommonExample.csproj.CoreCompileInputs.cache
-D:\Demolar\.NetCore\NetCoreExampleSolution\CommonExample\obj\Debug\netcoreapp3.1\CommonExample.dll
-D:\Demolar\.NetCore\NetCoreExampleSolution\CommonExample\obj\Debug\netcoreapp3.1\CommonExample.pdb
