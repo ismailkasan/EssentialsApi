@@ -82,5 +82,14 @@ namespace NetCoreExampleApi.Controllers
             }
             return BadRequest();
         }
+
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("Test")]
+        public IActionResult Test()
+        {
+            return Ok("Test başarılı");
+        }
     }
 }
