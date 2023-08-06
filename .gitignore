@@ -253,3 +253,6 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+/NetCoreExampleApi/appsettings.json
+/NetCoreExampleApi/appsettings.Development.json
+/NetCoreExampleApi/appsettings.Prod.json
