@@ -67,7 +67,7 @@ namespace NetCoreExampleApi
 
             // DbContext
             services.AddDbContext<ExampleDbContext>(options =>
-            options.UseSqlServer("Server=.;Initial Catalog=productdb;Integrated security=true;Connection Timeout=30;"));
+            options.UseSqlServer("Server=ismail-demo-db.database.windows.net;Database=ismail-demo-db;User ID=ismailAzureSqlAdmin;Password=HD45W4*F537rtK!;Trusted_Connection=False;Encrypt=True;"));
 
             services.AddControllers().AddFluentValidation(fv =>
             {
