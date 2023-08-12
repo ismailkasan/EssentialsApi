@@ -26,10 +26,10 @@ steps:
     dotnet build --configuration $(buildConfiguration)
     dotnet publish
   displayName: 'dotnet build and publish'
-  workingDirectory: './api-project'
+  workingDirectory: './NetCoreWebApiExample'
 - task: CopyFiles@2
   inputs:
-    contents: '/home/vsts/work/1/s/api-project/bin/Debug/net6.0/publish/**'
+    contents: '/home/vsts/work/1/s/NetCoreWebApiExample/bin/Debug/net6.0/publish/**'
     targetFolder: $(Build.ArtifactStagingDirectory)
 
 - script: |
