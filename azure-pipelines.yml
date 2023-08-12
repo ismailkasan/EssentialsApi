@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-latest'
 
 
 variables:
@@ -22,20 +22,23 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: VSBuild@1
+- script: |
+    dotnet build --configuration $(buildConfiguration)
+    dotnet publish
+  displayName: 'dotnet build and publish'
+  workingDirectory: './api-project'
+- task: CopyFiles@2
   inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    contents: '/home/vsts/work/1/s/api-project/bin/Debug/net6.0/publish/**'
+    targetFolder: $(Build.ArtifactStagingDirectory)
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+- script: |
+    ls
+  displayName: check location
+
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingLinuxDirectory)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
 - task: AzureRmWebAppDeployment@4
@@ -44,4 +47,4 @@ steps:
     azureSubscription: 'Azure subscription 1(51a91c39-8f83-4f4d-ac7b-a9b943350929)'
     appType: 'webAppLinux'
     WebAppName: 'azure-demo-web-app-linux'
-    packageForLinux: '$(Build.ArtifactStagingLinuxDirectory)/*.zip'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/*.zip'
