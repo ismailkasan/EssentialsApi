@@ -4,7 +4,12 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- main
+  branches:
+    include:
+      - main
+  paths:
+    include: 
+      - NetCoreExampleApi/*
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -26,16 +31,20 @@ steps:
     dotnet build --configuration $(buildConfiguration)
     dotnet publish
   displayName: 'dotnet build and publish'
-  workingDirectory: '$(System.DefaultWorkingDirectory)'
+  workingDirectory: './NetCoreExampleApi'
 - task: CopyFiles@2
   inputs:
-    contents: '/home/vsts/work/1/s/$(System.DefaultWorkingDirectory)/bin/Debug/net6.0/publish/**'
+    contents: '/home/vsts/work/1/s/NetCoreExampleApi/bin/Debug/net6.0/publish/**'
     targetFolder: $(Build.ArtifactStagingDirectory)
 
 - script: |
     ls
   displayName: check location
 - task: PublishBuildArtifacts@1
+ inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
 
 - task: AzureRmWebAppDeployment@4
   inputs:
