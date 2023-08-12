@@ -43,4 +43,5 @@ steps:
     azureSubscription: 'Azure subscription 1(51a91c39-8f83-4f4d-ac7b-a9b943350929)'
     appType: 'webAppLinux'
     WebAppName: 'azure-demo-web-app-linux'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/*.zip'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    RuntimeStack: 'DOTNETCORE|6.0'
