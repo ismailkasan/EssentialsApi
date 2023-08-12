@@ -33,7 +33,7 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
-- task: PublishBuildArtifacts@1
+- task: PublishBuildArtifacts@2
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
