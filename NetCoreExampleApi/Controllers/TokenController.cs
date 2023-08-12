@@ -89,7 +89,7 @@ namespace NetCoreExampleApi.Controllers
         [Route("Test")]
         public IActionResult Test()
         {
-            return Ok("Test başarılı linux");
+            return Ok("Test başarılı linux github");
         }
     }
 }
