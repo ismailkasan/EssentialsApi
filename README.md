@@ -14,8 +14,6 @@ You can find a lot of examples that uses different .net libraries. Here are some
 - Fluent Validation.
 - Repository Pattern and Generic Repository Pattern.
 
-The result of these commands depent on ChatGpt "text-davinci-003" model. 
-
 Clean Architecture:
 - Presentation layer.
 - Application layer.
