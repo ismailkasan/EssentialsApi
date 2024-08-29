@@ -9,6 +9,7 @@ using Essentials.Data;
 using Essentials.Domain;
 using Scrutor;
 using Essentials.Application;
+using System.Net.Http.Headers;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -44,8 +45,17 @@ builder.Services.AddDistributedRedisCache(option =>
     option.Configuration = "localhost:6379";
 });
 
+// Add HttpClientFactory
+builder.Services.AddHttpClient("jsonPlaceHolder", client =>
+{
+    client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com");
+    client.DefaultRequestHeaders.UserAgent.ParseAdd("dotnet-docs");
+    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+})
+.SetHandlerLifetime(TimeSpan.FromMinutes(5)); // Lifetime config
+
 // Add services dependencies by Scrutor...
-var aa= builder.Services.Scan(selector => selector
+var aa = builder.Services.Scan(selector => selector
 .FromAssemblies(typeof(ApplicationEmptyClass).Assembly, // The Assembly that contains this type
                 typeof(DataEmptyClass).Assembly)
 .AddClasses(publicOnly: false)
