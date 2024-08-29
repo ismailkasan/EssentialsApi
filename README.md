@@ -29,6 +29,9 @@ You need to [install](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) .n
 ## Roadmap
 
 - Http Client Factory will be added.
+- Custom Middleware.
+- AntiXss Custom Middleware.
+- AntiXss Custom Middleware.
 - Encrypt,Descrpt
 
 ## 🚀 About Me
