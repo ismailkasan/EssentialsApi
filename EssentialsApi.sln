@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Essentials.Data", "Essentia
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Essentials.Application", "Essentials.Application\Essentials.Application.csproj", "{A1C5173A-4E36-4129-A0EF-36C104752086}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Essentials.Api", "Essentials2.Api\Essentials.Api.csproj", "{D7C9548B-995C-4E5E-8C21-36DFEE7D07F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Essentials.Api", "Essentials.Api\Essentials.Api.csproj", "{D7C9548B-995C-4E5E-8C21-36DFEE7D07F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
