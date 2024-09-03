@@ -10,6 +10,9 @@ using Essentials.Domain;
 using Scrutor;
 using Essentials.Application;
 using System.Net.Http.Headers;
+using Polly;
+using Polly.Extensions.Http;
+using Essentials.Api.Middlewares;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -51,8 +54,11 @@ builder.Services.AddHttpClient("jsonPlaceHolder", client =>
     client.BaseAddress = new Uri("https://jsonplaceholder.typicode.com");
     client.DefaultRequestHeaders.UserAgent.ParseAdd("dotnet-docs");
     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+    client.Timeout = TimeSpan.FromSeconds(60);
 })
-.SetHandlerLifetime(TimeSpan.FromMinutes(5)); // Lifetime config
+.SetHandlerLifetime(TimeSpan.FromMinutes(5)) // Lifetime config
+.AddPolicyHandler(GetRetryPolicy());  // Retry config
+
 
 // Add services dependencies by Scrutor...
 var aa = builder.Services.Scan(selector => selector
@@ -131,6 +137,8 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
+app.UseMiddleware<ExceptionMiddleware>(); // Add Exception Middleware
+
 app.UseSwagger();
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Essentials.Api v1"));
 
@@ -147,3 +155,13 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+static IAsyncPolicy<HttpResponseMessage> GetRetryPolicy()
+{
+    return HttpPolicyExtensions
+        .HandleTransientHttpError()
+        .OrResult(msg => msg.StatusCode == System.Net.HttpStatusCode.NotFound)
+        .WaitAndRetryAsync(6, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2,
+                                                                    retryAttempt)));
+}
