@@ -28,7 +28,6 @@ You need to [install](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) .n
 
 ## Roadmap
 
-- Custom Middleware.
 - AntiXss Custom Middleware.
 - Custom Logging Middleware.
 - Encrypt,Descrpt
