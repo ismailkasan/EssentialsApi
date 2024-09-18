@@ -13,6 +13,7 @@ using System.Net.Http.Headers;
 using Polly;
 using Polly.Extensions.Http;
 using Essentials.Api.Middlewares;
+using Essentials.Api;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -35,9 +36,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     };
 });
 
-// Add DbContext 
-builder.Services.AddDbContext<EssentialsDbContext>(options =>
-options.UseSqlServer("Server=ismail-demo-db.database.windows.net;Database=ismail-demo-db;User ID=ismailAzureSqlAdmin;Password=HD45W4*F537rtK!;Trusted_Connection=False;Encrypt=True;"));
+// Add DbContext
+builder.Services.AddDbContext<EssentialsDbContext>();
 
 // Add Validators
 builder.Services.AddScoped<IValidator<Product>, ProductValidator>();
